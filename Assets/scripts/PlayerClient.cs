@@ -18,7 +18,7 @@ public class PlayerClient : MonoBehaviour
     void Update()
     {
         float input = Input.GetAxisRaw("Horizontal");
-        core.moveInput = input;
+        core.SetMoveInput(input);   
 
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -37,22 +37,23 @@ public class PlayerClient : MonoBehaviour
     }
 
     void FixedUpdate()
-{
-    if (core.CanMove)
     {
-        float moveX = core.GetMovementVelocityX();
-        rb.linearVelocity = new Vector2(moveX, rb.linearVelocity.y);
-    }
+        if (core.CanMove)
+        {
+            float moveX = core.GetMovementVelocityX();
+            rb.linearVelocity = new Vector2(moveX, rb.linearVelocity.y);
+        }
 
-    if (core.moveInput > 0.1f)
-    {
-        sr.flipX = false;
-        core.SetFaceDirection(1);
+        float currentInput = core.MoveInput;   
+        if (currentInput > 0.1f)
+        {
+            sr.flipX = false;
+            core.SetFaceDirection(1);
+        }
+        else if (currentInput < -0.1f)
+        {
+            sr.flipX = true;
+            core.SetFaceDirection(-1);
+        }
     }
-    else if (core.moveInput < -0.1f)
-    {
-        sr.flipX = true;
-        core.SetFaceDirection(-1);
-    }
-}
 }

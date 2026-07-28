@@ -5,13 +5,24 @@ public class PlayerCore
     public float rollDuration = 0.15f;
     public float rollCooldown = 1f;
 
-    public float moveInput;
+    
+    private float moveInput;
+
     public bool CanMove { get; private set; } = true;
     public bool CanRoll { get; private set; } = true;
     public int FaceDirection { get; private set; } = 1;
 
     private float rollTimer;
     private float rollCooldownTimer;
+
+    
+    public void SetMoveInput(float input)
+    {
+        moveInput = input;
+    }
+
+    
+    public float MoveInput => moveInput;
 
     public void Tick(float deltaTime)
     {
