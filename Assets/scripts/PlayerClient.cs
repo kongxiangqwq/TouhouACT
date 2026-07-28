@@ -3,12 +3,14 @@ using UnityEngine;
 public class PlayerClient : MonoBehaviour
 {
     private PlayerCore core;
+    private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
 
     void Awake()
     {
-        core = GetComponent<PlayerCore>();
+        core = new PlayerCore();
+        rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
@@ -20,9 +22,12 @@ public class PlayerClient : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            float dir = sr.flipX ? -1f : 1f;
-            if (core.TryStartRoll(dir))
+            int dir = sr.flipX ? -1 : 1;
+            core.SetFaceDirection(dir);
+
+            if (core.TryStartRoll(out float rollX))
             {
+                rb.linearVelocity = new Vector2(rollX, rb.linearVelocity.y);
                 anim.SetTrigger("Roll");
             }
         }
@@ -32,13 +37,22 @@ public class PlayerClient : MonoBehaviour
     }
 
     void FixedUpdate()
+{
+    if (core.CanMove)
     {
-        core.ApplyMovement();
-
-        float input = core.moveInput;
-        if (input > 0.1f)
-            sr.flipX = false;
-        else if (input < -0.1f)
-            sr.flipX = true;
+        float moveX = core.GetMovementVelocityX();
+        rb.linearVelocity = new Vector2(moveX, rb.linearVelocity.y);
     }
+
+    if (core.moveInput > 0.1f)
+    {
+        sr.flipX = false;
+        core.SetFaceDirection(1);
+    }
+    else if (core.moveInput < -0.1f)
+    {
+        sr.flipX = true;
+        core.SetFaceDirection(-1);
+    }
+}
 }
