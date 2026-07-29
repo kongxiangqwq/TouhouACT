@@ -1,40 +1,84 @@
 public class PlayerCore
 {
-    public float moveSpeed = 5f;
-    public float rollSpeed = 20f;
-    public float rollDuration = 0.15f;
-    public float rollCooldown = 1f;
-
     
+    public float moveSpeed = 5f;
     private float moveInput;
 
+    
+    public float dashSpeed = 20f;
+    public float dashDuration = 0.15f;
+    public float dashCooldown = 1f;
+    public float secondDashWindow = 2f;
+
+    
+    public float jumpForce = 10f;
+    public int maxJumps = 2;
+
+    
     public bool CanMove { get; private set; } = true;
-    public bool CanRoll { get; private set; } = true;
+    public bool CanDash { get; private set; } = true;
     public int FaceDirection { get; private set; } = 1;
-
-    private float rollTimer;
-    private float rollCooldownTimer;
+    public bool IsJumping { get; private set; }
 
     
-    public void SetMoveInput(float input)
-    {
-        moveInput = input;
-    }
+    private float dashTimer;
+    private float dashCooldownTimer;
+    private int dashCount;
+    private float secondDashWindowTimer;
 
     
+    private int jumpCount;
+    private bool jumpRequested;
+    private bool isGrounded;
+
+    
+    public void SetMoveInput(float input) => moveInput = input;
     public float MoveInput => moveInput;
+
+    public void RequestJump() => jumpRequested = true;
+
+    public void SetGrounded(bool grounded)
+    {
+        isGrounded = grounded;
+        if (grounded)
+        {
+            jumpCount = 0;
+            IsJumping = false;
+        }
+    }
 
     public void Tick(float deltaTime)
     {
+        
         if (!CanMove)
         {
-            rollTimer -= deltaTime;
-            if (rollTimer <= 0f) CanMove = true;
+            dashTimer -= deltaTime;
+            if (dashTimer <= 0f)
+                CanMove = true;
         }
-        if (!CanRoll)
+        else
         {
-            rollCooldownTimer -= deltaTime;
-            if (rollCooldownTimer <= 0f) CanRoll = true;
+            
+            if (dashCount == 1)
+            {
+                if (secondDashWindowTimer <= 0f)
+                    secondDashWindowTimer = secondDashWindow;
+
+                secondDashWindowTimer -= deltaTime;
+                if (secondDashWindowTimer <= 0f)
+                    EnterDashCooldown();
+            }
+        }
+
+        
+        if (!CanDash)
+        {
+            dashCooldownTimer -= deltaTime;
+            if (dashCooldownTimer <= 0f)
+            {
+                CanDash = true;
+                dashCount = 0;
+            }
         }
     }
 
@@ -44,21 +88,51 @@ public class PlayerCore
         return moveInput * moveSpeed;
     }
 
-    public bool TryStartRoll(out float rollVelocityX)
+    public bool TryStartDash(out float dashVelocityX)
     {
-        rollVelocityX = 0f;
-        if (!CanRoll || !CanMove) return false;
+        dashVelocityX = 0f;
+        if (!CanDash || !CanMove || dashCount >= 2)
+            return false;
 
         CanMove = false;
-        CanRoll = false;
-        rollTimer = rollDuration;
-        rollCooldownTimer = rollCooldown;
-        rollVelocityX = FaceDirection * rollSpeed;
+        dashTimer = dashDuration;
+        dashVelocityX = FaceDirection * dashSpeed;
+
+        if (dashCount == 0)
+        {
+            dashCount = 1;
+            secondDashWindowTimer = 0f;
+        }
+        else if (dashCount == 1)
+        {
+            dashCount = 2;
+            EnterDashCooldown();
+        }
+
         return true;
     }
 
-    public void SetFaceDirection(int direction)
+    public bool TryJump(out float jumpVelocityY)
     {
-        FaceDirection = direction;
+        jumpVelocityY = 0f;
+
+        if (!jumpRequested) return false;
+        jumpRequested = false;
+
+        if (jumpCount >= maxJumps) return false;
+
+        jumpCount++;
+        IsJumping = true;
+        jumpVelocityY = jumpForce;
+        return true;
+    }
+
+    public void SetFaceDirection(int direction) => FaceDirection = direction;
+
+    private void EnterDashCooldown()
+    {
+        CanDash = false;
+        dashCooldownTimer = dashCooldown;
+        secondDashWindowTimer = 0f;
     }
 }
