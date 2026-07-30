@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerClient : MonoBehaviour
 {
@@ -6,7 +7,11 @@ public class PlayerClient : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
-    private AfterimageEffect afterimage;   
+    private AfterimageEffect afterimage;
+
+    private float defaultGravityScale;
+    private bool physicsGrounded;
+    private bool wasGroundedLastFrame;
 
     void Awake()
     {
@@ -15,6 +20,13 @@ public class PlayerClient : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         afterimage = GetComponent<AfterimageEffect>();
+
+        defaultGravityScale = rb.gravityScale;
+    }
+
+    void Start()
+    {
+        if (anim != null) anim.Update(0f);
     }
 
     void Update()
@@ -22,19 +34,15 @@ public class PlayerClient : MonoBehaviour
         float input = Input.GetAxisRaw("Horizontal");
         core.SetMoveInput(input);
 
-        bool grounded = Mathf.Abs(rb.linearVelocity.y) < 0.01f;
-        core.SetGrounded(grounded);
-
         if (Input.GetKeyDown(KeyCode.K))
         {
             int dir = sr.flipX ? -1 : 1;
             core.SetFaceDirection(dir);
             if (core.TryStartDash(out float dashX))
             {
-                rb.linearVelocity = new Vector2(dashX, rb.linearVelocity.y);
+                rb.linearVelocity = new Vector2(dashX, 0f);
                 anim.SetTrigger("Dash");
-                Debug.Log("Dash triggered");
-                afterimage?.SpawnAfterimage();   
+                StartCoroutine(DelayedAfterimage());
             }
         }
 
@@ -51,17 +59,48 @@ public class PlayerClient : MonoBehaviour
 
     void FixedUpdate()
     {
+        // 只有从离地到着地的瞬间才重置跳跃次数
+        if (!core.IgnoreGravity)
+        {
+            bool justLanded = physicsGrounded && !wasGroundedLastFrame;
+
+            if (justLanded)
+            {
+                core.SetGrounded(true);
+                // 立刻强制播放 Idle 动画，消除延迟
+                anim.Play("Idle", 0, 0f);
+            }
+            else if (!physicsGrounded)
+            {
+                core.SetGrounded(false);
+            }
+            // 一直着地时不重复调用
+        }
+
+        // 执行跳跃
         if (core.TryJump(out float jumpVel))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVel);
+            physicsGrounded = false;   // 跳跃后立即取消着地标记
         }
 
-        if (core.CanMove)
+        // 处理重力与移动
+        if (core.IgnoreGravity)
         {
-            float moveX = core.GetMovementVelocityX();
-            rb.linearVelocity = new Vector2(moveX, rb.linearVelocity.y);
+            rb.gravityScale = 0f;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+        }
+        else
+        {
+            rb.gravityScale = defaultGravityScale;
+            if (core.CanMove)
+            {
+                float moveX = core.GetMovementVelocityX();
+                rb.linearVelocity = new Vector2(moveX, rb.linearVelocity.y);
+            }
         }
 
+        // 角色翻转
         float currentInput = core.MoveInput;
         if (currentInput > 0.1f)
         {
@@ -73,5 +112,31 @@ public class PlayerClient : MonoBehaviour
             sr.flipX = true;
             core.SetFaceDirection(-1);
         }
+
+        // 保存着地状态，重置物理标记
+        wasGroundedLastFrame = physicsGrounded;
+        physicsGrounded = false;
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        // 上升阶段不认定为着地，避免起跳瞬间误判
+        if (rb.linearVelocity.y > 0.1f)
+            return;
+
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            if (contact.normal.y > 0.5f)
+            {
+                physicsGrounded = true;
+                break;
+            }
+        }
+    }
+
+    IEnumerator DelayedAfterimage()
+    {
+        yield return new WaitForSeconds(0.03f);
+        afterimage?.SpawnAfterimage();
     }
 }

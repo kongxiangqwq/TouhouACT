@@ -1,82 +1,40 @@
 fileFormatVersion: 2
-guid: c3917946199c20a43b1e479569507132
+guid: 916481599a1665a4f83a50283d96bb54
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3025948998136195609
-    second: Newwalk_0
+      213: -2311659948842064771
+    second: Player_0
   - first:
-      213: 5820716744579002203
-    second: Newwalk_1
+      213: 7364682651488144517
+    second: Player_1
   - first:
-      213: -2258758962602854948
-    second: Newwalk_2
+      213: -6287787046888575383
+    second: Player_2
   - first:
-      213: -6136868614965892128
-    second: Newwalk_3
+      213: -1182821291677670348
+    second: Player_3
   - first:
-      213: -4594247363947225117
-    second: Newwalk_4
+      213: -4709456396536258026
+    second: Player_4
   - first:
-      213: -4662289741469112675
-    second: Newwalk_5
+      213: -4529042392078601758
+    second: Player_5
   - first:
-      213: 3160996877794335624
-    second: Newwalk_6
+      213: -7446026091647042388
+    second: Player_6
   - first:
-      213: 5899369075109855653
-    second: Newwalk_7
+      213: 5938012242645255967
+    second: Player_7
   - first:
-      213: 6191269408536469414
-    second: Newwalk_8
+      213: -4245738604243887485
+    second: Player_8
   - first:
-      213: 451525872138975585
-    second: Newwalk_9
+      213: 2473453845335418800
+    second: Player_9
   - first:
-      213: 4116689382510476264
-    second: Newwalk_10
-  - first:
-      213: 1996969132144728106
-    second: Newwalk_11
-  - first:
-      213: 5786842575372431483
-    second: Newwalk_12
-  - first:
-      213: 7743845679167047050
-    second: Newwalk_13
-  - first:
-      213: -9104246300277768680
-    second: Newwalk_14
-  - first:
-      213: 7561896820231254890
-    second: Newwalk_15
-  - first:
-      213: 5569438000962543484
-    second: Newwalk_16
-  - first:
-      213: -4331965421069438515
-    second: Newwalk_17
-  - first:
-      213: 3859439149367530646
-    second: Newwalk_18
-  - first:
-      213: 239251722841832728
-    second: Newwalk_19
-  - first:
-      213: 3042012189948313178
-    second: Newwalk_20
-  - first:
-      213: -1427802304485168388
-    second: Newwalk_21
-  - first:
-      213: 6921353248241618901
-    second: Newwalk_22
-  - first:
-      213: -3403078949408951095
-    second: Newwalk_23
-  - first:
-      213: 8653745342648338654
-    second: Newwalk_24
+      213: -3287367053296241113
+    second: Player_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -172,13 +130,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Newwalk_0
+      name: Player_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 299
-        width: 28
-        height: 23
+        x: 178
+        y: 703
+        width: 136
+        height: 332
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91a6b56e4945ef920800000000000000
-      internalID: 3025948998136195609
+      spriteID: d7465c336855befd0800000000000000
+      internalID: -2311659948842064771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_1
+      name: Player_1
       rect:
         serializedVersion: 2
-        x: 60
-        y: 60
-        width: 127
-        height: 324
+        x: 473
+        y: 703
+        width: 153
+        height: 330
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5facca2a0757c050800000000000000
-      internalID: 5820716744579002203
+      spriteID: 58cce6d0adb943660800000000000000
+      internalID: 7364682651488144517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_2
+      name: Player_2
       rect:
         serializedVersion: 2
-        x: 301
-        y: 60
-        width: 165
-        height: 324
+        x: 772
+        y: 703
+        width: 146
+        height: 331
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd5b3d0e0b647a0e0800000000000000
-      internalID: -2258758962602854948
+      spriteID: 96e67e6befa4db8a0800000000000000
+      internalID: -6287787046888575383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_3
+      name: Player_3
       rect:
         serializedVersion: 2
-        x: 559
-        y: 60
-        width: 151
-        height: 324
+        x: 1062
+        y: 703
+        width: 170
+        height: 330
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,20 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ebe6bb528675daa0800000000000000
-      internalID: -6136868614965892128
+      spriteID: 434a8c45d46c59fe0800000000000000
+      internalID: -1182821291677670348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_4
+      name: Player_4
       rect:
         serializedVersion: 2
-        x: 814
-        y: 60
-        width: 141
-        height: 324
+        x: 426
+        y: 340
+        width: 126
+        height: 312
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,20 +233,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ef96a52d54fd30c0800000000000000
-      internalID: -4594247363947225117
+      spriteID: 612e34feb56a4aeb0800000000000000
+      internalID: -4709456396536258026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_5
+      name: Player_5
       rect:
         serializedVersion: 2
-        x: 1072
-        y: 60
-        width: 173
-        height: 324
+        x: 646
+        y: 341
+        width: 125
+        height: 311
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9629c79e283c4fb0800000000000000
-      internalID: -4662289741469112675
+      spriteID: 2e13877b0fb9521c0800000000000000
+      internalID: -4529042392078601758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_6
+      name: Player_6
       rect:
         serializedVersion: 2
-        x: 1326
-        y: 60
-        width: 158
-        height: 324
+        x: 853
+        y: 340
+        width: 124
+        height: 312
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,20 +277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88bdc05a9ed1edb20800000000000000
-      internalID: 3160996877794335624
+      spriteID: cac761b68b66aa890800000000000000
+      internalID: -7446026091647042388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_7
+      name: Player_7
       rect:
         serializedVersion: 2
-        x: 1584
-        y: 60
-        width: 150
-        height: 324
+        x: 97
+        y: 83
+        width: 258
+        height: 214
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5a109d8eae4ced150800000000000000
-      internalID: 5899369075109855653
+      spriteID: f178aca7cae086250800000000000000
+      internalID: 5938012242645255967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_8
+      name: Player_8
       rect:
         serializedVersion: 2
-        x: 1838
-        y: 60
-        width: 177
-        height: 324
+        x: 449
+        y: 83
+        width: 289
+        height: 201
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6af1f8c69becbe550800000000000000
-      internalID: 6191269408536469414
+      spriteID: 38a51ecfb3b1415c0800000000000000
+      internalID: -4245738604243887485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_9
+      name: Player_9
       rect:
         serializedVersion: 2
-        x: 2095
-        y: 60
-        width: 143
-        height: 324
+        x: 837
+        y: 83
+        width: 182
+        height: 217
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,20 +343,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 169fdbf6364244600800000000000000
-      internalID: 451525872138975585
+      spriteID: 0b7aa8bda29735220800000000000000
+      internalID: 2473453845335418800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Newwalk_10
+      name: Player_10
       rect:
         serializedVersion: 2
-        x: 2351
-        y: 60
-        width: 173
-        height: 324
+        x: 1059
+        y: 83
+        width: 286
+        height: 190
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -407,74 +365,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ebb827ae2b612930800000000000000
-      internalID: 4116689382510476264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Newwalk_11
-      rect:
-        serializedVersion: 2
-        x: 2606
-        y: 60
-        width: 155
-        height: 324
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a2818e468d8a6bb10800000000000000
-      internalID: 1996969132144728106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Newwalk_12
-      rect:
-        serializedVersion: 2
-        x: 2863
-        y: 60
-        width: 142
-        height: 324
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b703e2c89aefe4050800000000000000
-      internalID: 5786842575372431483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Newwalk_13
-      rect:
-        serializedVersion: 2
-        x: 3118
-        y: 60
-        width: 145
-        height: 324
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a850236dd9aa77b60800000000000000
-      internalID: 7743845679167047050
+      spriteID: 72674fd051de062d0800000000000000
+      internalID: -3287367053296241113
       vertices: []
       indices: 
       edges: []
@@ -483,7 +375,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cb86994b12111f2479022509f0842b7e
+    spriteID: 27046db424b50db49b0e5e7ea0603d30
     internalID: 0
     vertices: []
     indices: 
@@ -495,20 +387,17 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Newwalk_0: 3025948998136195609
-      Newwalk_1: 5820716744579002203
-      Newwalk_10: 4116689382510476264
-      Newwalk_11: 1996969132144728106
-      Newwalk_12: 5786842575372431483
-      Newwalk_13: 7743845679167047050
-      Newwalk_2: -2258758962602854948
-      Newwalk_3: -6136868614965892128
-      Newwalk_4: -4594247363947225117
-      Newwalk_5: -4662289741469112675
-      Newwalk_6: 3160996877794335624
-      Newwalk_7: 5899369075109855653
-      Newwalk_8: 6191269408536469414
-      Newwalk_9: 451525872138975585
+      Player_0: -2311659948842064771
+      Player_1: 7364682651488144517
+      Player_10: -3287367053296241113
+      Player_2: -6287787046888575383
+      Player_3: -1182821291677670348
+      Player_4: -4709456396536258026
+      Player_5: -4529042392078601758
+      Player_6: -7446026091647042388
+      Player_7: 5938012242645255967
+      Player_8: -4245738604243887485
+      Player_9: 2473453845335418800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
