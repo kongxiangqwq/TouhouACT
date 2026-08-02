@@ -1,3 +1,4 @@
+<<<<<<< New base: add NuGet and MessagePack Packages
 fileFormatVersion: 2
 guid: 890572853054dff43914720cd615c26a
 folderAsset: yes
@@ -6,3 +7,14 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+|||||||
+=======
+fileFormatVersion: 2
+guid: 3ffcbb992a5d07640b4e7665b1708fd7
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Current commit: update
